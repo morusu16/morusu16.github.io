@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>初めての投稿 | 私のブログ</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <h1><a href="../index.html">私のブログ</a></h1>
+    <nav>
+      <a href="../index.html">ホーム</a> | 
+      <a href="../about.html">このブログについて</a>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+      <h2>初めての投稿</h2>
+      <p class="date">2025年8月1日</p>
+      
+      <p>今日からブログを始めることにしました！HTMLとCSSを勉強しながら、自分のブログを作成しています。</p>
+      
+      <h3>ブログを始めた理由</h3>
+      <ul>
+        <li>学んだことをアウトプットしたい</li>
+        <li>Web開発スキルを身につけたい</li>
+        <li>自分の考えを整理する場が欲しい</li>
+      </ul>
+      
+      <img src="../images/first-post.jpg" alt="ブログ作成の様子" class="post-image">
+      
+      <p>これから週に1回の更新を目標に、以下のような内容を書いていきます：</p>
+      
+      <ol>
+        <li>Web開発の学習記録</li>
+        <li>おすすめの書籍紹介</li>
+        <li>日常の気づき</li>
+      </ol>
+      
+      <a href="../index.html" class="back-link">← トップに戻る</a>
+    </article>
+  </main>
+
+  <footer>
+    <p>© 2025 私のブログ All Rights Reserved</p>
+  </footer>
+</body>
+</html>
