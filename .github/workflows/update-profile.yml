@@ -1,0 +1,50 @@
+name: Apply owner-approved profile
+on:
+  issues:
+    types: [opened, edited]
+permissions:
+  contents: read
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: >-
+      github.repository == 'morusu16/morusu16.github.io' &&
+      github.actor == github.repository_owner &&
+      github.event.issue.user.login == github.repository_owner &&
+      startsWith(github.event.issue.title, '[研究室の更新]')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check owner and validate publishing request
+        run: node scripts/apply-profile-update.mjs
+      - name: Verify publishing rules
+        run: node verify-publishing.mjs
+      - name: Build laboratory
+        run: node scripts/build-site.mjs
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - id: deployment
+        uses: actions/deploy-pages@v5
+      - name: Complete request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          LAB_REPOSITORY: ${{ github.repository }}
+          LAB_ISSUE: ${{ github.event.issue.number }}
+        run: gh api "repos/$LAB_REPOSITORY/issues/$LAB_ISSUE" --method PATCH -f state=closed
