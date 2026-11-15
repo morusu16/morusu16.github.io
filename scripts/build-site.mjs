@@ -15,5 +15,5 @@ const safe=JSON.stringify(profile).replace(/</g,'\\u003c').replace(/\u2028/g,'\\
 await writeFile(path.join(out,'profile.js'),`window.LAB_REVISION=${JSON.stringify(revision(profile))};\nwindow.LAB_PROFILE=${safe};\n`);
 await writeFile(path.join(out,'profile.json'),JSON.stringify(profile,null,2)+'\n');
 await writeFile(path.join(out,'.nojekyll'),'');
-await writeFile(path.join(out,'robots.txt'),'User-agent: *\nDisallow: /owner.html\n');
+await writeFile(path.join(out,'robots.txt'),'User-agent: *\nDisallow: /owner.html\nDisallow: /qa-mobile.html\n');
 console.log('Built public laboratory and owner editing page.');
