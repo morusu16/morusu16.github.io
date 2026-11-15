@@ -81,8 +81,8 @@
       <label class="editor-field"><span>マスキングテープに書く名前</span><input name="label" maxlength="80" placeholder="GitHub、日記、作品集…" required></label>
       <label class="editor-field"><span>触れたときに出る説明</span><textarea name="description" maxlength="140" placeholder="ここには何を置いている？ 短い説明をどうぞ。"></textarea></label>
       <label class="editor-field"><span>URL</span><input name="url" type="url" placeholder="https://" required autocomplete="off"></label>
-      <label class="editor-field"><span>置く物</span><select name="object"><option value="monitor">モニター</option><option value="notebook">ノート</option><option value="specimen">標本瓶</option></select></label>
-      <label class="editor-field"><span>置き場所</span><select name="surface"><option value="desk">作業机</option><option value="shelf">引き出し</option></select><small data-place-label></small></label>
+      <label class="editor-field"><span>置く物</span><select name="object" aria-label="置く物"><option value="monitor">モニター</option><option value="notebook">ノート</option><option value="specimen">標本瓶</option></select></label>
+      <label class="editor-field"><span>置き場所</span><select name="surface" aria-label="置き場所"><option value="desk">作業机</option><option value="shelf">引き出し</option></select><small data-place-label></small></label>
       <button type="button" class="remove-link">取り除く</button>
     </fieldset>
   </template>
