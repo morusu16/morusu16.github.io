@@ -1,0 +1,7 @@
+dist/
+node_modules/
+*.log
+delete-confirmation.png
+new-repository.png
+qa/
+.publish-state.json

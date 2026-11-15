@@ -1,0 +1,15 @@
+.lab-object .masking-tape{position:relative;display:block;flex:none;width:max-content;max-width:min(360px,70vw);padding:6px 17px;color:#374431!important;background:linear-gradient(2deg,#d4d1a8d9,#e4dfb7ed 35%,#d6d4addb);font:12px/1.6 'Yu Mincho','Hiragino Mincho ProN',serif!important;font-weight:400;letter-spacing:.06em;white-space:normal;overflow-wrap:anywhere;text-align:center;box-shadow:0 1px 3px #0004;clip-path:polygon(1% 0,99% 1%,98.5% 16%,100% 31%,98.5% 47%,100% 65%,98% 80%,99% 100%,1% 98%,2% 81%,0 65%,1.5% 49%,0 32%,2% 15%);transform:rotate(-1deg)}
+.lab-object:nth-child(3n) .masking-tape{transform:rotate(1.5deg)}
+.lab-object[data-edge=left] .masking-tape{align-self:flex-start}.lab-object[data-edge=right] .masking-tape{align-self:flex-end}
+.lab-object[data-edge=left] .object-description{left:0;transform:translate(0,7px)}.lab-object[data-edge=right] .object-description{left:auto;right:0;transform:translate(0,7px)}
+.lab-object[data-edge=left]:is(:hover,:focus-visible,.show-description) .object-description,.lab-object[data-edge=right]:is(:hover,:focus-visible,.show-description) .object-description{transform:translate(0,0)}
+.owner-mode .masking-tape{cursor:text}
+.lab-object .object-description{position:absolute;left:50%;bottom:calc(100% + 12px);transform:translate(-50%,7px);width:max-content;max-width:min(270px,72vw);padding:11px 14px;border:1px solid #a5b58d77;background:#e4e0bceF;color:#3c5035;font:11px/1.9 'Yu Mincho',serif;white-space:pre-wrap;overflow-wrap:anywhere;box-shadow:0 7px 20px #0005;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s,transform .22s,visibility .22s;z-index:120}
+.lab-object:has(.object-description):hover,.lab-object:has(.object-description):focus-visible,.lab-object.show-description{z-index:120!important}
+.lab-object:hover .object-description,.lab-object:focus-visible .object-description,.lab-object.show-description .object-description{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.lab-object.is-dragging .object-description{opacity:0;visibility:hidden}
+.drawer-nameplate{max-width:88%;width:max-content;white-space:normal;overflow-wrap:anywhere;font-size:clamp(8px,1vw,11px);line-height:1.4;max-height:44%;overflow:hidden}
+.tray-header h2{max-width:65%;overflow-wrap:anywhere;font-size:clamp(11px,1.6vw,15px);line-height:1.7}
+.drawer-label-settings{border-top:1px solid #899e7466;margin:20px 0;padding-top:18px}.drawer-label-settings summary{cursor:pointer;font:12px serif;color:#526b48}.drawer-label-fields{display:grid;gap:11px;margin-top:18px}.drawer-label-field{display:flex;gap:14px;align-items:center}.drawer-label-field>span{font:9px monospace;color:#748869;flex:none}.drawer-label-field input{min-width:0;font-size:12px;padding:7px!important}
+@media(max-width:650px){.lab-object .masking-tape{font-size:10px!important;max-width:72vw;padding:5px 12px}.drawer-nameplate{font-size:8px}.tray-header h2{max-width:60%}}
+@media(prefers-reduced-motion:reduce){.lab-object .object-description{transition:none}}

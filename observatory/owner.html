@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="静かな実験室。手帳を開いて、あなたの名前と、外の世界への入口を置いていく。">
+  <title>研究室の下書き — Personal Laboratory</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="stylesheet" href="room.css">
+  <link rel="stylesheet" href="steel.css">
+  <link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="editor.css">
+  <link rel="stylesheet" href="drawers.css">
+  <link rel="stylesheet" href="labels.css">
+  <link rel="stylesheet" href="lighting.css">
+</head>
+<body class="owner-mode">
+  <main id="desk" class="laboratory" aria-label="静かな研究室と、手帳を置いた机">
+    <div class="room-background" aria-hidden="true"></div>
+    <div class="chemical-light" aria-hidden="true"></div>
+    <div class="room-light" aria-hidden="true"></div>
+    <div class="mist mist-back" aria-hidden="true"></div>
+    <div class="mist mist-front" aria-hidden="true"></div>
+    <header class="room-header">
+      <div><p class="room-kicker">PERSONAL LABORATORY / 下書き用</p><h1 data-researcher-name>名前はまだ未設定</h1><p class="researcher-bio" data-researcher-bio></p></div>
+      <button id="motion" type="button" aria-pressed="false">霧の動きを止める</button>
+    </header>
+    <section class="light-station" aria-label="研究室の照明"><button class="lamp-switch" type="button" data-light-toggle aria-label="天井灯を消す" aria-pressed="true"><span class="switch-rocker" aria-hidden="true"><span class="switch-indicator"></span></span></button><span class="switch-caption" aria-hidden="true">LIGHT</span><details class="dimmer-controls"><summary>明るさ</summary><div class="dimmer-panel"><label for="lamp-level">天井灯 <output data-light-output for="lamp-level">70%</output></label><input id="lamp-level" type="range" min="5" max="100" step="1" value="70" data-light-level aria-label="天井灯の明るさ"><p>小さな緑の灯りは、点けたまま。</p><p role="status" data-light-message></p></div></details></section>
+    <div class="desk-surface" aria-hidden="true"></div>
+    <div class="desk-edge" aria-hidden="true"></div>
+    <div class="desk-items">
+      <button class="closed-notebook" type="button" data-open-editor aria-label="机の上の手帳を開いて、研究室を編集する" aria-haspopup="dialog">
+        <span class="notebook-pages" aria-hidden="true"></span><span class="notebook-cover" aria-hidden="true"><span class="cover-rule"></span><span class="cover-title">研究手帳</span><span class="cover-subtitle">FIELD NOTES</span><span class="cover-mark">私的記録</span></span><span class="notebook-ribbon" aria-hidden="true"></span>
+        <span class="notebook-hint">手帳を開く <span aria-hidden="true">↗</span></span>
+      </button>
+      <nav class="room-objects" data-lab-links data-placement-area aria-label="机に置いたリンク"></nav>
+    </div>
+    <section class="underdesk" data-underdesk inert aria-hidden="true" aria-label="机の下の引き出し">
+      <button class="look-up" type="button" data-look-up aria-label="視点を上げて机に戻る"><b aria-hidden="true">↑</b><span>机の上へ</span></button>
+      <div class="cabinet"><span class="cabinet-plaque">LABORATORY / ARCHIVE</span><div class="drawer-fronts" data-drawer-fronts></div></div>
+      <nav class="cabinet-navigation" aria-label="収納台の切り替え"><button type="button" data-previous-cabinet aria-label="左の収納台">←</button><span data-cabinet-counter aria-live="polite"></span><button type="button" data-next-cabinet aria-label="右の収納台">→</button></nav>
+    </section>
+    <div class="camera-navigation"><button class="look-down" type="button" data-look-down aria-label="視点を下げて机の下を見る"><b aria-hidden="true">↓</b><span>机の下を見る</span></button></div>
+    <p class="placement-message" role="status" aria-live="polite" data-placement-message>物はドラッグで配置できます。矢印キーでも移動できます。</p>
+    <footer class="room-footer"><span class="room-invitation">ここから、少しずつ。</span><span class="draft-status" data-profile-status hidden>この端末の下書き</span></footer>
+  </main>
+
+  <dialog id="drawer-modal" class="drawer-modal" aria-labelledby="drawer-title"><div class="drawer-tray"><header class="tray-header"><h2 id="drawer-title" data-drawer-title>引き出し 01</h2><button type="button" data-close-drawer>引き出しを戻す ×</button></header><nav class="drawer-objects" data-drawer-links data-placement-area aria-label="引き出しの中の物"></nav><p class="drawer-empty" data-drawer-empty>まだ、何も入っていません。</p><footer class="tray-footer"><span>ドラッグで配置できます。</span><div><button type="button" data-edit-from-drawer>手帳を開く</button><button type="button" data-previous-drawer aria-label="前の引き出し">←</button><button type="button" data-next-drawer aria-label="次の引き出し">→</button></div></footer><span class="tray-lip" aria-hidden="true"></span><p class="placement-message" role="status" aria-live="polite" data-placement-message></p></div></dialog>
+
+  <dialog id="lab-editor" class="lab-editor" aria-labelledby="editor-title">
+    <div class="book-spread">
+      <aside class="book-left">
+        <span class="book-edition">PERSONAL LABORATORY / PRIVATE RECORD</span>
+        <div class="book-heading"><p>机の上の、小さな入口。</p><h2 id="editor-title">研究手帳</h2><span>名前を記す。<br>好きな場所につながる。<br>この部屋を、育てていく。</span></div>
+        <svg class="book-sketch" viewBox="0 0 160 200" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width=".8"><path d="M62 12h36M67 12v63l37 65q12 25-14 26H69q-26-1-13-26l36-65V12M58 133h43M65 28h28M47 173h66M78 173v12M69 187h20"/><ellipse cx="80" cy="148" rx="21" ry="5"/><path d="M115 29h12v112q-6 13-12 0ZM115 119h12M33 43h9v88q-4 10-9 0ZM33 111h9M25 159h21M27 163h17"/><path stroke-dasharray="2 4" d="M16 99h131M80 0v196"/></g></svg>
+        <div class="book-index"><a href="#profile-page">01 <span>研究員証</span></a><a href="#inventory-page">02 <span>机上の物・保管庫</span></a><a href="#connections-page">03 <span>リンクの内容</span></a></div>
+        <p class="book-footnote">まだ何もない机も、<br>ここに書くたび、あなたの場所になる。</p>
+        <span class="page-number">— 01 —</span>
+      </aside>
+      <div class="book-binding" aria-hidden="true"></div>
+      <section class="book-right">
+        <div class="editor-header"><span>記入する</span><button type="button" data-close-editor aria-label="手帳を閉じる">閉じる <span aria-hidden="true">×</span></button></div>
+        <div class="editor-body">
+          <form novalidate>
+            <section id="profile-page"><p class="page-label">01 / RESEARCHER</p><h3>研究員証</h3><label class="editor-field"><span>研究員名</span><input name="displayName" maxlength="60" autocomplete="nickname" placeholder="あなたの名前"></label><label class="editor-field"><span>自己紹介</span><textarea name="biography" maxlength="1500" placeholder="好きなものや、ここにいる理由。"></textarea></label></section>
+            <section id="inventory-page" class="notebook-inventory"><div class="editor-section"><div><p class="page-label">02 / ON THE DESK</p><h3>机上の物 <small data-desk-count></small></h3></div></div><p class="inventory-empty" data-desk-empty>机には、まだ物を置いていません。</p><ul class="inventory-list" data-desk-inventory></ul><h4 class="inventory-storage-heading">保管庫 <small data-storage-count></small></h4><p class="inventory-empty" data-storage-empty>保管庫は空です。</p><ul class="inventory-list" data-storage-inventory></ul><details class="drawer-label-settings"><summary>引き出しの名前を編集</summary><div class="drawer-label-fields" data-drawer-label-fields></div></details></section>
+            <section id="connections-page"><div class="editor-section"><div><p class="page-label">03 / CONNECTIONS</p><h3>リンクの内容</h3></div><button type="button" data-add-link>＋ リンクを置く</button></div><p class="editor-empty" data-empty-links>まだ何も置かれていません。<br>リンクを書くと、机にひとつ、物が増えます。</p><div class="editor-links" data-editor-links></div></section>
+            <div class="editor-footer"><button type="button" data-preview-profile>机で見てみる</button><button type="submit" class="save-draft">下書きを保存</button></div>
+            <section class="publishing-controls"><button type="button" data-publish-profile>公開に反映する</button><p class="editor-note">公開には、所有者のGitHubアカウントでの確認が必要です。</p><p role="status" aria-live="polite" data-publish-message></p><div data-publish-fallback hidden><textarea readonly data-publish-body aria-label="GitHubに貼り付ける公開内容" hidden></textarea><a data-publish-link target="_blank" rel="noopener noreferrer">GitHubで確認する</a></div></section>
+            <p role="status" aria-live="polite" class="editor-message" data-editor-message></p>
+            <p class="editor-note">机や引き出しで物をドラッグすると、配置もこの端末の下書きに保存します。公開中の内容は変わりません。</p>
+            <details class="editor-export"><summary>手帳の持ち出し・元の表示</summary><p>下書きをファイルにして保管したり、別の端末で読み込めます。</p><button type="button" data-export-profile>書き出す</button><button type="button" data-import-profile>読み込む</button><button type="button" data-show-published>元の表示</button><input type="file" accept="application/json,.json" data-profile-file hidden></details>
+          </form>
+          <span class="page-number">— 02 —</span>
+        </div>
+      </section>
+    </div>
+  </dialog>
+  <template id="link-fields-template">
+    <fieldset class="link-fields"><legend>置く物</legend>
+      <label class="editor-field"><span>マスキングテープに書く名前</span><input name="label" maxlength="80" placeholder="GitHub、日記、作品集…" required></label>
+      <label class="editor-field"><span>触れたときに出る説明</span><textarea name="description" maxlength="140" placeholder="ここには何を置いている？ 短い説明をどうぞ。"></textarea></label>
+      <label class="editor-field"><span>URL</span><input name="url" type="url" placeholder="https://" required autocomplete="off"></label>
+      <label class="editor-field"><span>置く物</span><select name="object"><option value="monitor">モニター</option><option value="notebook">ノート</option><option value="specimen">標本瓶</option></select></label>
+      <label class="editor-field"><span>置き場所</span><select name="surface"><option value="desk">作業机</option><option value="shelf">引き出し</option></select><small data-place-label></small></label>
+      <button type="button" class="remove-link">取り除く</button>
+    </fieldset>
+  </template>
+  <script src="profile.js"></script><script src="layout.js"></script><script src="profile-runtime.js"></script><script src="scene.js"></script><script src="book.js"></script><script src="inventory-model.js"></script><script src="editor.js"></script><script src="publishing.js"></script><script src="placement.js"></script><script src="room.js"></script><script src="object-labels.js"></script><script src="lighting.js"></script>
+</body>
+</html>

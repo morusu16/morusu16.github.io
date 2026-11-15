@@ -1,0 +1,25 @@
+.laboratory .desk-items,.laboratory .desk-items:has(.room-objects:not(:empty)) {height:100svh;min-height:100svh;max-width:none;padding:0;display:block}
+.laboratory .desk-surface {top:44%;left:-5%;right:-5%}
+.laboratory .closed-notebook {position:absolute;left:9%;bottom:85px;z-index:110;margin:0}
+.laboratory .room-objects {position:absolute;left:5%;right:5%;top:49%;bottom:65px;max-width:none;display:block;pointer-events:none;z-index:2}
+.laboratory .lab-object {position:absolute;pointer-events:auto;transform:translate(-50%,-100%);transform-origin:center bottom;margin:0;min-height:0;touch-action:manipulation}
+.laboratory .lab-object:hover {transform:translate(-50%,-100%) translateY(-5px)}
+.owner-mode .lab-object {cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none}
+.owner-mode .lab-object.is-dragging {cursor:grabbing;transform:translate(-50%,-100%) translateY(-3px);filter:drop-shadow(9px 17px 13px #0009);transition:none;z-index:105!important;outline:1px dashed #b9d6b966;outline-offset:8px}
+.placement-message {position:absolute;bottom:46px;right:5vw;left:30%;text-align:right;font:10px/1.8 'Yu Gothic',sans-serif;color:#aec3b6;pointer-events:none;z-index:3;margin:0}
+.placement-message.is-error {color:#f1bc9d}
+.storage-controls {position:absolute;left:5%;right:5%;top:36%;display:flex;align-items:center;justify-content:space-between;gap:15px;z-index:5}
+.storage-tabs,.shelf-paging {display:flex;align-items:center;gap:8px}
+.storage-controls button {background:#0c2020e6;color:#b8cfc1;border:1px solid #688a794d;padding:10px 15px;font:11px 'Yu Gothic',sans-serif;border-radius:2px}
+.storage-controls button[aria-pressed=true]{color:#e3e9d3;background:#304939;border-color:#9ab99c88}
+.storage-controls button:disabled{opacity:.3;cursor:default}
+.shelf-paging span {font:10px monospace;color:#c2d3c4;min-width:85px;text-align:center}
+.storage-rack{position:absolute;left:5%;right:5%;top:49%;bottom:65px;z-index:1;pointer-events:none;display:none;border-left:9px solid #304b48;border-right:9px solid #304b48;box-shadow:inset 2px 0 #89a89c44,inset -2px 0 #89a89c44}
+.storage-rack i{position:absolute;left:0;right:0;top:24%;height:13px;background:linear-gradient(#93ada280,#38544f 22%,#0a211e);border-top:1px solid #b9c9b788;box-shadow:0 14px 25px #0008}
+.storage-rack i+i{top:82%}
+.laboratory[data-surface=shelf] .storage-rack{display:block}
+.laboratory[data-surface=shelf] .desk-surface{opacity:.18}
+.laboratory[data-surface=shelf] .desk-edge{opacity:.2}
+.laboratory[data-surface=shelf] .closed-notebook{transform:perspective(650px) rotateX(32deg) rotateZ(-12deg) scale(.65);opacity:.75}
+.shelf-empty{position:absolute;top:56%;left:10%;right:10%;text-align:center;font:12px serif;color:#aec1ad;z-index:2;pointer-events:none}
+@media(max-width:650px){.laboratory .room-objects,.storage-rack{left:5%;right:5%;top:46%;bottom:72px}.laboratory .desk-surface{top:42%}.laboratory .closed-notebook{left:8%;bottom:80px;width:105px;height:140px}.laboratory .lab-object{width:66px;padding:8px 2px;gap:5px}.laboratory .lab-object strong{font-size:10px}.laboratory .lab-object small{font-size:7px}.laboratory .monitor{width:58px;height:43px;border-width:4px}.laboratory .monitor:after{width:30px;left:9px}.laboratory .notebook{height:55px;width:41px}.laboratory .specimen{width:33px;height:58px}.placement-message{left:42%;right:5vw;bottom:44px;font-size:9px}.storage-controls{top:33%;gap:8px;flex-wrap:wrap}.storage-controls button{font-size:10px;padding:9px}.shelf-paging span{font-size:9px;min-width:65px}}

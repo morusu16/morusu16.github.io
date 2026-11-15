@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="静かな実験室。手帳を開いて、あなたの名前と、外の世界への入口を置いていく。">
+  <title>研究室 — Personal Laboratory</title>
+  <link rel="stylesheet" href="room.css">
+  <link rel="stylesheet" href="steel.css">
+  <link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="editor.css">
+  <link rel="stylesheet" href="drawers.css">
+  <link rel="stylesheet" href="labels.css">
+  <link rel="stylesheet" href="lighting.css">
+</head>
+<body>
+  <main id="desk" class="laboratory" aria-label="静かな研究室と、手帳を置いた机">
+    <div class="room-background" aria-hidden="true"></div>
+    <div class="chemical-light" aria-hidden="true"></div>
+    <div class="room-light" aria-hidden="true"></div>
+    <div class="mist mist-back" aria-hidden="true"></div>
+    <div class="mist mist-front" aria-hidden="true"></div>
+    <header class="room-header">
+      <div><p class="room-kicker">PERSONAL LABORATORY</p><h1 data-researcher-name>名前はまだ未設定</h1><p class="researcher-bio" data-researcher-bio></p></div>
+      <button id="motion" type="button" aria-pressed="false">霧の動きを止める</button>
+    </header>
+    <section class="light-station" aria-label="研究室の照明"><button class="lamp-switch" type="button" data-light-toggle aria-label="天井灯を消す" aria-pressed="true"><span class="switch-rocker" aria-hidden="true"><span class="switch-indicator"></span></span></button><span class="switch-caption" aria-hidden="true">LIGHT</span><details class="dimmer-controls"><summary>明るさ</summary><div class="dimmer-panel"><label for="lamp-level">天井灯 <output data-light-output for="lamp-level">70%</output></label><input id="lamp-level" type="range" min="5" max="100" step="1" value="70" data-light-level aria-label="天井灯の明るさ"><p>小さな緑の灯りは、点けたまま。</p><p role="status" data-light-message></p></div></details></section>
+    <div class="desk-surface" aria-hidden="true"></div>
+    <div class="desk-edge" aria-hidden="true"></div>
+    <div class="desk-items">
+      <button class="closed-notebook" type="button" data-open-reader aria-label="机の上の手帳を開いて、自己紹介を読む" aria-haspopup="dialog">
+        <span class="notebook-pages" aria-hidden="true"></span><span class="notebook-cover" aria-hidden="true"><span class="cover-rule"></span><span class="cover-title">研究手帳</span><span class="cover-subtitle">FIELD NOTES</span><span class="cover-mark">私的記録</span></span><span class="notebook-ribbon" aria-hidden="true"></span>
+        <span class="notebook-hint">手帳を開く <span aria-hidden="true">↗</span></span>
+      </button>
+      <nav class="room-objects" data-lab-links data-placement-area aria-label="机に置いたリンク"></nav>
+    </div>
+    <section class="underdesk" data-underdesk inert aria-hidden="true" aria-label="机の下の引き出し">
+      <button class="look-up" type="button" data-look-up aria-label="視点を上げて机に戻る"><b aria-hidden="true">↑</b><span>机の上へ</span></button>
+      <div class="cabinet"><span class="cabinet-plaque">LABORATORY / ARCHIVE</span><div class="drawer-fronts" data-drawer-fronts></div></div>
+      <nav class="cabinet-navigation" aria-label="収納台の切り替え"><button type="button" data-previous-cabinet aria-label="左の収納台">←</button><span data-cabinet-counter aria-live="polite"></span><button type="button" data-next-cabinet aria-label="右の収納台">→</button></nav>
+    </section>
+    <div class="camera-navigation"><button class="look-down" type="button" data-look-down aria-label="視点を下げて机の下を見る"><b aria-hidden="true">↓</b><span>机の下を見る</span></button></div>
+    <footer class="room-footer"><span class="room-invitation">ここから、少しずつ。</span><span class="draft-status" data-profile-status hidden>この端末の下書き</span></footer>
+  </main>
+
+  <dialog id="drawer-modal" class="drawer-modal" aria-labelledby="drawer-title"><div class="drawer-tray"><header class="tray-header"><h2 id="drawer-title" data-drawer-title>引き出し 01</h2><button type="button" data-close-drawer>引き出しを戻す ×</button></header><nav class="drawer-objects" data-drawer-links data-placement-area aria-label="引き出しの中の物"></nav><p class="drawer-empty" data-drawer-empty>まだ、何も入っていません。</p><footer class="tray-footer"><span>物を押すと、その場所へ。</span><div><button type="button" data-previous-drawer aria-label="前の引き出し">←</button><button type="button" data-next-drawer aria-label="次の引き出し">→</button></div></footer><span class="tray-lip" aria-hidden="true"></span></div></dialog>
+
+  <dialog id="lab-reader" class="lab-editor" aria-labelledby="reader-title">
+    <div class="book-spread">
+      <aside class="book-left">
+        <span class="book-edition">PERSONAL LABORATORY / FIELD NOTES</span>
+        <div class="book-heading"><p>机の上の、小さな入口。</p><h2 id="reader-title">研究手帳</h2><span>この部屋のこと。<br>ここにいる人のこと。<br>外の世界につながる場所。</span></div>
+        <svg class="book-sketch" viewBox="0 0 160 200" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width=".8"><path d="M62 12h36M67 12v63l37 65q12 25-14 26H69q-26-1-13-26l36-65V12M58 133h43M65 28h28M47 173h66M78 173v12M69 187h20"/><ellipse cx="80" cy="148" rx="21" ry="5"/><path d="M115 29h12v112q-6 13-12 0ZM115 119h12M33 43h9v88q-4 10-9 0ZM33 111h9M25 159h21M27 163h17"/><path stroke-dasharray="2 4" d="M16 99h131M80 0v196"/></g></svg>
+        <div class="book-index"><a href="#reader-profile">01 <span>研究員証</span></a><a href="#reader-connections">02 <span>外の世界への入口</span></a></div>
+        <p class="book-footnote">まだ何もない机も、<br>ここに書くたび、あなたの場所になる。</p>
+        <span class="page-number">— 01 —</span>
+      </aside>
+      <div class="book-binding" aria-hidden="true"></div>
+      <section class="book-right">
+        <div class="editor-header"><span>手帳を読む</span><button type="button" data-close-reader aria-label="手帳を閉じる">閉じる <span aria-hidden="true">×</span></button></div>
+        <div class="editor-body">
+          <section id="reader-profile"><p class="page-label">01 / RESEARCHER</p><h3 data-reader-name>研究員証</h3><p class="reader-biography" data-reader-bio>この手帳は、これから少しずつ埋まっていきます。</p></section>
+          <section id="reader-connections"><div class="editor-section"><div><p class="page-label">02 / CONNECTIONS</p><h3>外の世界への入口</h3></div></div><nav class="reader-links" data-reader-links aria-label="研究員のリンク"></nav><p class="editor-empty" data-reader-empty>まだ、何も置かれていません。</p></section>
+          <span class="page-number">— 02 —</span>
+        </div>
+      </section>
+    </div>
+  </dialog>
+  <script src="profile.js"></script><script src="layout.js"></script><script src="profile-runtime.js"></script><script src="scene.js"></script><script src="book.js"></script><script src="reader.js"></script><script src="room.js"></script><script src="object-labels.js"></script><script src="lighting.js"></script>
+</body>
+</html>

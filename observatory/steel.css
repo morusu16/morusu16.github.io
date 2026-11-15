@@ -1,0 +1,14 @@
+/* Brushed stainless steel under the room's cool lighting. */
+.desk-surface {
+  background:
+    radial-gradient(ellipse at 58% 4%, #d3ebe333, transparent 55%),
+    repeating-linear-gradient(0deg, #d7e4df12 0 .6px, #11222612 .6px 1.2px, transparent 1.2px 3px),
+    linear-gradient(103deg, #253538 0%, #536465 19%, #34494c 38%, #758887 53%, #43595a 68%, #263b3e 100%);
+  border-top: 2px solid #b4cac7a3;
+  box-shadow: 0 -15px 70px #0005, inset 0 2px 0 #e1efeb66, inset 0 -55px 90px #04131555;
+}
+.desk-edge {
+  height: 18px;
+  border-top: 1px solid #e1eae2a6;
+  background: linear-gradient(#b5c8c199, #516863 12%, #263e3e 45%, #102629 90%);
+}

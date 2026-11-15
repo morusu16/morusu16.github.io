@@ -1,0 +1,24 @@
+:root{--lamp-level:.7}
+.room-background{filter:saturate(.68) brightness(calc(.18 + var(--lamp-level)*.7));transition:transform .8s cubic-bezier(.3,.65,.25,1),filter .55s,opacity .65s}
+.laboratory[data-camera=under] .room-background{filter:saturate(.55) brightness(calc(.12 + var(--lamp-level)*.47))}
+.chemical-light{position:absolute;z-index:-4;inset:-2%;background:url('assets/laboratory.png') center 43%/cover no-repeat;transform:scale(1.02);filter:brightness(1.08) saturate(1.35);opacity:calc(.12 + (1 - var(--lamp-level))*.85);pointer-events:none;mask-image:radial-gradient(ellipse 6% 10% at 32% 62%,#000 5%,transparent 90%),radial-gradient(ellipse 6% 8% at 61% 68%,#000 10%,transparent 90%),radial-gradient(ellipse 12% 19% at 96% 50%,#000 10%,transparent 90%),radial-gradient(ellipse 7% 10% at 17% 80%,#000 10%,transparent 90%);transition:transform .8s cubic-bezier(.3,.65,.25,1),opacity .55s}
+.laboratory[data-camera=under] .chemical-light{transform:translateY(-14%) scale(1.2)}
+.room-light{opacity:var(--lamp-level);transition:opacity .55s}
+.laboratory .desk-surface,.laboratory .desk-edge{filter:brightness(calc(.26 + var(--lamp-level)*.74));transition:transform .8s cubic-bezier(.3,.65,.25,1),opacity .65s,filter .55s}
+.cabinet{filter:brightness(calc(.35 + var(--lamp-level)*.65));transition:filter .55s}
+.closed-notebook{filter:drop-shadow(9px 18px 12px #000b) brightness(calc(.4 + var(--lamp-level)*.6))}
+.object-shape:not(.specimen){filter:brightness(calc(.36 + var(--lamp-level)*.64));transition:filter .55s}
+.object-shape.specimen{filter:brightness(calc(1.1 - var(--lamp-level)*.15));box-shadow:0 4px calc(12px + (1 - var(--lamp-level))*26px) #62d28580;transition:box-shadow .55s,filter .55s}
+.lab-object .masking-tape{filter:brightness(calc(.67 + var(--lamp-level)*.33));transition:filter .55s}
+.light-station{position:absolute;right:3vw;top:23%;z-index:180;display:flex;flex-direction:column;align-items:center;gap:9px}
+.lamp-switch{position:relative;width:52px;height:80px;border:1px solid #6d7b69;border-radius:3px;background:linear-gradient(110deg,#394b42,#63715e 50%,#34483d);box-shadow:2px 4px 8px #0008,inset 0 1px #b9c1a566;padding:0;color:#c0c8ac;cursor:pointer}
+.lamp-switch:before,.lamp-switch:after{content:'';position:absolute;left:24px;width:3px;height:3px;border:1px solid #8d997e;border-radius:50%;background:#263b2c}.lamp-switch:before{top:5px}.lamp-switch:after{bottom:5px}
+.switch-rocker{position:absolute;left:12px;top:18px;width:26px;height:42px;border:1px solid #102a20;border-radius:2px;background:linear-gradient(#8a967a,#596c4f 50%,#293f2c);box-shadow:inset 0 2px 4px #d2d5b655,0 1px 2px #000b;transition:background .25s,box-shadow .25s}
+.lamp-switch[aria-pressed=false] .switch-rocker{background:linear-gradient(#263d2c,#4d6448 50%,#859577);box-shadow:inset 0 2px 4px #0007,0 1px 2px #b0b99d44}
+.switch-indicator{position:absolute;left:10px;top:7px;width:4px;height:3px;border-radius:1px;background:#b3e2a0;box-shadow:0 0 6px #9dde79}.lamp-switch[aria-pressed=false] .switch-indicator{background:#3a4c32;box-shadow:none}
+.switch-caption{font:7px monospace;letter-spacing:.2em;color:#a5b899;text-shadow:0 1px 5px #000}
+.dimmer-controls{position:relative;text-align:center}.dimmer-controls summary{list-style:none;font:9px serif;letter-spacing:.08em;color:#c0cfb3;cursor:pointer;padding:5px 9px;border:1px solid #6c866044;background:#10271bc9;border-radius:2px}.dimmer-controls summary::-webkit-details-marker{display:none}
+.dimmer-panel{position:absolute;right:0;top:32px;width:220px;padding:17px;background:#11271dee;border:1px solid #7b9363aa;box-shadow:0 8px 22px #0008;text-align:left;border-radius:3px;color:#c1d0af}
+.dimmer-panel label{font:11px serif;display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}.dimmer-panel output{font:10px monospace;color:#a3c288}.dimmer-panel input{width:100%;accent-color:#a2c18b;cursor:pointer}.dimmer-panel p{font:9px/1.8 serif;color:#819c74;margin:12px 0 0}.dimmer-panel [data-light-message]:empty{display:none}
+@media(max-width:650px){.chemical-light{background-position:58% center}.light-station{right:3vw;top:24%;gap:6px}.lamp-switch{width:42px;height:66px}.lamp-switch:before,.lamp-switch:after{left:19px}.switch-rocker{left:9px;top:14px;width:24px;height:36px}.dimmer-panel{width:200px}.switch-caption{font-size:6px}}
+@media(prefers-reduced-motion:reduce){.room-background,.chemical-light,.room-light,.laboratory .desk-surface,.laboratory .desk-edge,.cabinet,.object-shape,.lab-object .masking-tape,.switch-rocker{transition:none!important}}
