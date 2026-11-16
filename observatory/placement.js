@@ -21,14 +21,14 @@
     const link=currentLink(item);if(!link)return;
     const rect=item.closest('[data-placement-area]').getBoundingClientRect();if(!rect.width||!rect.height)return;
     active={item,pointerId:event.pointerId,startX:event.clientX,startY:event.clientY,origin:link.position,next:link.position,surface:link.surface,rect,moved:false};
-    item.setPointerCapture(event.pointerId);
     item.focus({preventScroll:true});
   });
   area.addEventListener('pointermove',event=>{
     if(!active || event.pointerId!==active.pointerId)return;
     const dx=event.clientX-active.startX,dy=event.clientY-active.startY;
     if(!active.moved && Math.hypot(dx,dy)<5)return;
-    active.moved=true;event.preventDefault();
+    if(!active.moved){active.item.setPointerCapture(event.pointerId);active.moved=true;}
+    event.preventDefault();
     active.item.classList.add('is-dragging');
     active.next=LabLayout.drag(active.origin,dx,dy,active.rect.width,active.rect.height,active.item.offsetWidth);
     LabLayout.apply(active.item,active.next);
